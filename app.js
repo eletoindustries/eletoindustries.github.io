@@ -3,7 +3,7 @@ import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/fir
 
 const firebaseConfig = {
   apiKey: "AIzaSyAgSwpGRg7kasPOE0YF8DJ1nCRV2kwoj6Y",
-  authDomain: "eleto-industries.firebaseapp.com",
+  authDomain: "leto-industries.firebaseapp.com",
   projectId: "eleto-industries",
 };
 
@@ -11,25 +11,26 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 window.login = async function () {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
   const errorDiv = document.getElementById("error");
 
   errorDiv.innerText = "";
 
-  // ✅ VALIDATION
+  // 🔴 EMPTY FIELD CHECK
   if (!email || !password) {
-    errorDiv.innerText = "Please fill all fields";
+    errorDiv.innerText = "⚠️ Please fill all fields";
     return;
   }
 
   try {
     await signInWithEmailAndPassword(auth, email, password);
 
-    // ✅ REDIRECT TO ADMIN PAGE
+    // ✅ SUCCESS → redirect
     window.location.href = "/eleto-admin/";
 
   } catch (error) {
-    errorDiv.innerText = "Invalid email or password";
+    // 🔴 WRONG CREDENTIALS
+    errorDiv.innerText = "❌ Invalid email or password";
   }
 };
