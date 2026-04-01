@@ -3,42 +3,60 @@
 <head>
   <title>Eleto Admin Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      display: flex;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
       height: 100vh;
+      display: flex;
       justify-content: center;
       align-items: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
     }
 
     .card {
-      background: white;
+      background: #fff;
       padding: 30px;
+      width: 320px;
       border-radius: 12px;
-      width: 300px;
-      text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
     }
 
     input {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin: 10px 0;
       border-radius: 6px;
       border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #667eea;
     }
 
     button {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       background: #667eea;
       color: white;
       border: none;
       border-radius: 6px;
+      font-size: 15px;
       cursor: pointer;
+      margin-top: 10px;
     }
 
     button:hover {
@@ -47,7 +65,9 @@
 
     .error {
       color: red;
-      font-size: 14px;
+      font-size: 13px;
+      margin-top: 10px;
+      min-height: 18px;
     }
   </style>
 </head>
